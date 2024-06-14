@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:my_strength_log_flutter/detailpage.dart';
+import 'package:go_router/go_router.dart';
 
 class ListPage extends StatelessWidget {
   const ListPage({super.key});
+
+  static const icon = Icons.list;
+  static const label = 'List';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('List Page'),
+        title: const Text('List Page'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () => context.push('/settings'),
+          ),
+        ],
       ),
       body: ListView.builder(
-        itemCount: 10,
+        itemCount: 100,
         itemBuilder: (context, index) {
           return ListTile(
             title: Text('Item $index'),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailPage(index: index),
-                ),
-              );
+              context.go('/list/detail');
             },
           );
         },

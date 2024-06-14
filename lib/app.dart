@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:my_strength_log_flutter/home.dart';
+import 'package:my_strength_log_flutter/router.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return MaterialApp.router(
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Home(title: 'Flutter Demo Home Page'),
+      routerConfig: router,
     );
   }
 }

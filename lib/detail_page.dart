@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({super.key, required this.index});
+  const DetailPage({super.key, this.index = -1});
 
   final int index;
 
