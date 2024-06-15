@@ -3,14 +3,17 @@ import 'package:go_router/go_router.dart';
 import 'package:my_strength_log_flutter/features/statistics/statistics_page.dart';
 import 'package:my_strength_log_flutter/features/workouts/list_page.dart';
 
-class ScaffoldNavigator extends StatefulWidget {
+// class ScaffoldNavigator extends StatefulWidget {
+//   const ScaffoldNavigator({super.key, required this.child});
+//   final Widget child;
+//   @override
+//   State<ScaffoldNavigator> createState() => _ScaffoldNavigatorState();
+// }
+
+class ScaffoldNavigator extends StatelessWidget {
   const ScaffoldNavigator({super.key, required this.child});
   final Widget child;
-  @override
-  State<ScaffoldNavigator> createState() => _ScaffoldNavigatorState();
-}
 
-class _ScaffoldNavigatorState extends State<ScaffoldNavigator> {
   @override
   Widget build(BuildContext context) {
     return OrientationBuilder(
@@ -53,10 +56,10 @@ class _ScaffoldNavigatorState extends State<ScaffoldNavigator> {
                       ],
                       selectedIndex: _calculateSelectedIndex(context),
                     ),
-                    Expanded(child: widget.child),
+                    Expanded(child: child),
                   ],
                 )
-              : widget.child,
+              : child,
           floatingActionButton: FloatingActionButton(
             onPressed: () => GoRouter.of(context).push('/addEdit'),
             child: const Icon(Icons.add),
