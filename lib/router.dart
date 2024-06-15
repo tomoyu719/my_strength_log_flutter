@@ -42,7 +42,9 @@ final router = GoRouter(
     ),
     GoRoute(path: '/addEdit', builder: (context, state) => const AddEditPage()),
     GoRoute(
-        path: '/settings', builder: (context, state) => const SettingsPage()),
+      path: '/settings',
+      builder: (context, state) => const SettingsPage(),
+    ),
   ],
   errorBuilder: (context, state) => const ErrorPage(),
 );
