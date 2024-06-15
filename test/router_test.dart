@@ -1,10 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:my_strength_log_flutter/app.dart';
-import 'package:my_strength_log_flutter/detail_page.dart';
+
 import 'package:my_strength_log_flutter/error_page.dart';
-import 'package:my_strength_log_flutter/list_page.dart';
+import 'package:my_strength_log_flutter/features/statistics/statistics_page.dart';
+import 'package:my_strength_log_flutter/features/workouts/detail_page.dart';
+import 'package:my_strength_log_flutter/features/workouts/list_page.dart';
 import 'package:my_strength_log_flutter/router.dart';
-import 'package:my_strength_log_flutter/statistics_page.dart';
 
 void main() {
   testWidgets('Initial route should be /list', (WidgetTester tester) async {

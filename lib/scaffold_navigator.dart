@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_strength_log_flutter/list_page.dart';
-import 'package:my_strength_log_flutter/statistics_page.dart';
+import 'package:my_strength_log_flutter/features/statistics/statistics_page.dart';
+import 'package:my_strength_log_flutter/features/workouts/list_page.dart';
 
 class ScaffoldNavigator extends StatefulWidget {
   const ScaffoldNavigator({super.key, required this.child});

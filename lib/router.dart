@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_strength_log_flutter/add_edit_page.dart';
-import 'package:my_strength_log_flutter/detail_page.dart';
 import 'package:my_strength_log_flutter/error_page.dart';
-import 'package:my_strength_log_flutter/list_page.dart';
+import 'package:my_strength_log_flutter/features/add_edit/add_edit_page.dart';
+import 'package:my_strength_log_flutter/features/settings/settings_page.dart';
+import 'package:my_strength_log_flutter/features/statistics/statistics_page.dart';
+import 'package:my_strength_log_flutter/features/workouts/detail_page.dart';
+import 'package:my_strength_log_flutter/features/workouts/list_page.dart';
 import 'package:my_strength_log_flutter/scaffold_navigator.dart';
-import 'package:my_strength_log_flutter/settings_page.dart';
-import 'package:my_strength_log_flutter/statistics_page.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 
