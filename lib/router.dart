@@ -43,7 +43,11 @@ final router = GoRouter(
     GoRoute(path: '/addEdit', builder: (context, state) => const AddEditPage()),
     GoRoute(
       path: '/settings',
-      builder: (context, state) => const SettingsPage(),
+      // builder: (context, state) => const SettingsPage(),
+      pageBuilder: (context, state) => const MaterialPage(
+        child: SettingsPage(),
+        fullscreenDialog: true,
+      ),
     ),
   ],
   errorBuilder: (context, state) => const ErrorPage(),
