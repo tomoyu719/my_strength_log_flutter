@@ -13,26 +13,56 @@ class ScaffoldNavigator extends StatefulWidget {
 class _ScaffoldNavigatorState extends State<ScaffoldNavigator> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) => _onItemTapped(index, context),
-        selectedIndex: _calculateSelectedIndex(context),
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(ListPage.icon),
-            label: ListPage.label,
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        final isLandScape = orientation == Orientation.landscape;
+        return Scaffold(
+          bottomNavigationBar: isLandScape
+              ? null
+              : NavigationBar(
+                  onDestinationSelected: (int index) =>
+                      _onItemTapped(index, context),
+                  selectedIndex: _calculateSelectedIndex(context),
+                  destinations: const [
+                    NavigationDestination(
+                      icon: Icon(ListPage.icon),
+                      label: ListPage.label,
+                    ),
+                    NavigationDestination(
+                      icon: Icon(StatisticsPage.icon),
+                      label: StatisticsPage.label,
+                    ),
+                  ],
+                ),
+          body: isLandScape
+              ? Row(
+                  children: [
+                    NavigationRail(
+                      labelType: NavigationRailLabelType.all,
+                      onDestinationSelected: (int index) =>
+                          _onItemTapped(index, context),
+                      destinations: const [
+                        NavigationRailDestination(
+                          icon: Icon(ListPage.icon),
+                          label: Text(ListPage.label),
+                        ),
+                        NavigationRailDestination(
+                          icon: Icon(StatisticsPage.icon),
+                          label: Text(StatisticsPage.label),
+                        ),
+                      ],
+                      selectedIndex: _calculateSelectedIndex(context),
+                    ),
+                    Expanded(child: widget.child),
+                  ],
+                )
+              : widget.child,
+          floatingActionButton: FloatingActionButton(
+            onPressed: () => GoRouter.of(context).push('/addEdit'),
+            child: const Icon(Icons.add),
           ),
-          NavigationDestination(
-            icon: Icon(StatisticsPage.icon),
-            label: StatisticsPage.label,
-          ),
-        ],
-      ),
-      body: widget.child,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => GoRouter.of(context).push('/addEdit'),
-        child: const Icon(Icons.add),
-      ),
+        );
+      },
     );
   }
 
