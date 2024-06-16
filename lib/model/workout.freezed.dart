@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Workout {
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
@@ -33,7 +34,8 @@ abstract class $WorkoutCopyWith<$Res> {
       _$WorkoutCopyWithImpl<$Res, Workout>;
   @useResult
   $Res call(
-      {String name,
+      {String id,
+      String name,
       String description,
       DateTime date,
       int reps,
@@ -54,6 +56,7 @@ class _$WorkoutCopyWithImpl<$Res, $Val extends Workout>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
     Object? description = null,
     Object? date = null,
@@ -62,6 +65,10 @@ class _$WorkoutCopyWithImpl<$Res, $Val extends Workout>
     Object? rpe = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -98,7 +105,8 @@ abstract class _$$WorkoutImplCopyWith<$Res> implements $WorkoutCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String name,
+      {String id,
+      String name,
       String description,
       DateTime date,
       int reps,
@@ -117,6 +125,7 @@ class __$$WorkoutImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
     Object? description = null,
     Object? date = null,
@@ -125,6 +134,10 @@ class __$$WorkoutImplCopyWithImpl<$Res>
     Object? rpe = null,
   }) {
     return _then(_$WorkoutImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -157,13 +170,16 @@ class __$$WorkoutImplCopyWithImpl<$Res>
 
 class _$WorkoutImpl implements _Workout {
   const _$WorkoutImpl(
-      {required this.name,
+      {required this.id,
+      required this.name,
       required this.description,
       required this.date,
       required this.reps,
       required this.sets,
       required this.rpe});
 
+  @override
+  final String id;
   @override
   final String name;
   @override
@@ -179,7 +195,7 @@ class _$WorkoutImpl implements _Workout {
 
   @override
   String toString() {
-    return 'Workout(name: $name, description: $description, date: $date, reps: $reps, sets: $sets, rpe: $rpe)';
+    return 'Workout(id: $id, name: $name, description: $description, date: $date, reps: $reps, sets: $sets, rpe: $rpe)';
   }
 
   @override
@@ -187,6 +203,7 @@ class _$WorkoutImpl implements _Workout {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WorkoutImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -198,7 +215,7 @@ class _$WorkoutImpl implements _Workout {
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, description, date, reps, sets, rpe);
+      Object.hash(runtimeType, id, name, description, date, reps, sets, rpe);
 
   @JsonKey(ignore: true)
   @override
@@ -209,13 +226,16 @@ class _$WorkoutImpl implements _Workout {
 
 abstract class _Workout implements Workout {
   const factory _Workout(
-      {required final String name,
+      {required final String id,
+      required final String name,
       required final String description,
       required final DateTime date,
       required final int reps,
       required final int sets,
       required final Rpe rpe}) = _$WorkoutImpl;
 
+  @override
+  String get id;
   @override
   String get name;
   @override
