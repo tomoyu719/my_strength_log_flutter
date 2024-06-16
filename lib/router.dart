@@ -30,7 +30,11 @@ final router = GoRouter(
           routes: <RouteBase>[
             GoRoute(
               path: 'detail',
-              builder: (context, state) => const DetailPage(),
+              builder: (context, state) {
+                final id = state.extra as String;
+
+                return DetailPage(id: id);
+              },
             ),
           ],
         ),
